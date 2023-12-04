@@ -24,19 +24,20 @@ jobs:
 
       - name: Build and Publish
         run: |
-            dotnet build -c Release
-            dotnet publish -c Release -o ./publish
+          dotnet build -c Release
+          dotnet publish -c Release -o ./publish
 
       - name: Apply EF Migrations
         run: |
           cd ./publish
-          dotnet ef database update
+          dotnet tool restore
+          dotnet ef database update --no-build --no-restore
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ./publish
 
   deploy:
     runs-on: windows-latest
