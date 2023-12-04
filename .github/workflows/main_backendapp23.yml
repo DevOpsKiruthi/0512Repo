@@ -23,7 +23,8 @@ jobs:
           include-prerelease: true
           
       - name: Install dotnet-ef tool
-        run: dotnet tool install --global dotnet-ef
+        run: dotnet tool install --global dotnet-ef --version 7.0.0
+
 
       - name: Clean and Restore
         run: |
