@@ -39,6 +39,7 @@ jobs:
       - name: Apply EF Migrations
         run: |
           cd ./publish
+          dotnet tool restore --version 7.0.0
           dotnet ef database update
 
       - name: Upload artifact for deployment job
