@@ -20,7 +20,7 @@ jobs:
           include-prerelease: true
 
       - name: Install dotnet-ef tool
-        run: dotnet tool install -l dotnet-ef
+        run: dotnet tool install -l dotnet ef
 
       - name: Build and Publish
         run: |
@@ -30,7 +30,7 @@ jobs:
       - name: Apply EF Migrations
         run: |
           cd ./publish
-          dotnet-ef database update
+          dotnet ef database update
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
