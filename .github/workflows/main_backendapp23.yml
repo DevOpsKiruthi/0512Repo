@@ -22,7 +22,7 @@ jobs:
           dotnet-version: '6.0.x'
           include-prerelease: true
       - name: Install dotnet-ef tool
-        run: dotnet tool install --global dotnet-ef --version 7.0.0
+        run: dotnet tool install -l dotnet-ef
         
       - name: Build and Publish
         run: |
